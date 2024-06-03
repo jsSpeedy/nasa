@@ -1,3 +1,7 @@
+"use client";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -105,3 +109,7 @@ a {
     color-scheme: dark;
   }
 }
+
+`;
+
+export default GlobalStyle;
