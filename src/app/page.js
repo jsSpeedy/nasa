@@ -1,9 +1,10 @@
 import Icon from "./components/atoms/Icon";
+import Navbar from "./components/molecules/Header";
 
 export default function Home() {
   return (
     <main>
-      <Icon icon="home" color="green" />
+      <Navbar />
     </main>
   );
 }
