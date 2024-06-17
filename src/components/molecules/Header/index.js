@@ -129,7 +129,7 @@ const menuItems = [
   { icon: "home", text: "Settings", color: "#f033ff" },
 ];
 
-const Navbar = () => {
+const Header = () => {
   const [activeIndex, setActiveIndex] = useState(2);
   const [hoverIndex, setHoverIndex] = useState(null);
 
@@ -171,4 +171,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

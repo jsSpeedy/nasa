@@ -1,9 +1,9 @@
-import Navbar from "../components/molecules/Header";
+import MainLayout from "src/layout/MainLayout";
 
 export default function Home() {
   return (
     <main>
-      <Navbar />
+      <MainLayout>asdasd</MainLayout>
     </main>
   );
 }
