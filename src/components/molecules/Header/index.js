@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import Container from "src/app/components/atoms/Container";
+import Container from "src/components/atoms/Container";
 import Link from "next/link";
-import Icon from "src/app/components/atoms/Icon";
+import Icon from "src/components/atoms/Icon";
 import styled from "styled-components";
 
 const StyledIcon = styled(Icon)`

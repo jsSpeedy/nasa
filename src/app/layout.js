@@ -1,4 +1,4 @@
-import GlobalStyle from "./components/atoms/GlobalStyles";
+import GlobalStyle from "../components/atoms/GlobalStyles";
 
 export const metadata = {
   title: "NASA",
