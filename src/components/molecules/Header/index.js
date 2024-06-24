@@ -148,8 +148,8 @@ const Header = () => {
 
   return (
     <Container>
-      <Navigation onMouseLeave={handleMouseLeave}>
-        <ItemsWrapper>
+      <Navigation>
+        <ItemsWrapper onMouseLeave={handleMouseLeave}>
           {menuItems.map((item, index) => (
             <Items
               key={index}
