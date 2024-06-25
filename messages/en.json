@@ -1,0 +1,29 @@
+{
+    "headers": [
+      {
+        "icon": "home",
+        "title": "Home",
+        "href": "/"
+      },
+      {
+        "icon": "user",
+        "title": "User",
+        "href": "/"
+      },
+      {
+        "icon": "images",
+        "title": "Gallery",
+        "href": "/"
+      },
+      {
+        "icon": "earth",
+        "title": "World",
+        "href": "/"
+      },
+      {
+        "icon": "file-text",
+        "title": "Documents",
+        "href": "/"
+      }
+    ]
+  }

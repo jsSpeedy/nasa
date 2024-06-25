@@ -1,9 +1,5 @@
-import MainLayout from "src/layout/MainLayout";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-    <main>
-      <MainLayout>asdasd</MainLayout>
-    </main>
-  );
+export default function RootPage() {
+  redirect("/tr");
 }

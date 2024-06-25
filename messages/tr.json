@@ -1,0 +1,29 @@
+{
+  "headers": [
+    {
+      "icon": "home",
+      "title": "Anasayfa",
+      "href": "/"
+    },
+    {
+      "icon": "user",
+      "title": "Kullanıcı",
+      "href": "/"
+    },
+    {
+      "icon": "images",
+      "title": "Galeri",
+      "href": "/"
+    },
+    {
+      "icon": "earth",
+      "title": "Dünya",
+      "href": "/"
+    },
+    {
+      "icon": "file-text",
+      "title": "Döküman",
+      "href": "/"
+    }
+  ]
+}
