@@ -7,8 +7,8 @@
     },
     {
       "icon": "user",
-      "title": "Kullanıcı",
-      "href": "/"
+      "title": "Hakkımızda",
+      "href": "hakkimizda"
     },
     {
       "icon": "images",
@@ -25,5 +25,8 @@
       "title": "Döküman",
       "href": "/"
     }
-  ]
+  ],
+  "pages": {
+    "about": "hakkimizda"
+  }
 }

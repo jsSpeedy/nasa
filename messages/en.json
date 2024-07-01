@@ -7,8 +7,8 @@
       },
       {
         "icon": "user",
-        "title": "User",
-        "href": "/"
+        "title": "About",
+        "href": "about"
       },
       {
         "icon": "images",
@@ -25,5 +25,8 @@
         "title": "Documents",
         "href": "/"
       }
-    ]
+    ],
+    "pages": {
+      "about": "about"
+    }
   }
