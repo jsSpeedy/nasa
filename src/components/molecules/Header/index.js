@@ -4,6 +4,7 @@ import Container from "src/components/atoms/Container";
 import Link from "next/link";
 import Icon from "src/components/atoms/Icon";
 import styled from "styled-components";
+import { useTranslations } from "next-intl";
 
 const StyledIcon = styled(Icon)`
   position: relative;
@@ -121,15 +122,10 @@ const Item = styled(Link)`
   font-weight: 500;
 `;
 
-const menuItems = [
-  { icon: "home", text: "Home", color: "#29fd53" },
-  { icon: "home", text: "Deneme", color: "#ff5733" },
-  { icon: "home", text: "Message", color: "#33d1ff" },
-  { icon: "home", text: "Photos", color: "#ffe933" },
-  { icon: "home", text: "Settings", color: "#f033ff" },
-];
-
 const Header = () => {
+  const t = useTranslations();
+  const headers = t.raw("headers");
+
   const [activeIndex, setActiveIndex] = useState(2);
   const [hoverIndex, setHoverIndex] = useState(null);
 
@@ -150,7 +146,7 @@ const Header = () => {
     <Container>
       <Navigation>
         <ItemsWrapper onMouseLeave={handleMouseLeave}>
-          {menuItems.map((item, index) => (
+          {headers.map((item, index) => (
             <Items
               key={index}
               className={index === activeIndex ? "active" : ""}
@@ -158,9 +154,9 @@ const Header = () => {
               onMouseEnter={() => handleMouseEnter(index)}
               hover={hoverIndex}
             >
-              <Item href="#">
+              <Item href={item.href}>
                 <StyledIcon icon={item.icon} />
-                <Text>{item.text}</Text>
+                <Text>{item.title}</Text>
               </Item>
             </Items>
           ))}
