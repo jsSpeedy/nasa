@@ -1,4 +1,15 @@
 {
+    "languages": [
+      {
+        "language": "English",
+        "icon": "uk-icon.png"
+      },
+      {
+        "language": "Türkçe",
+        "icon": "tr-icon.png"
+      }
+    ],
+
     "headers": [
       {
         "icon": "home",
@@ -25,8 +36,7 @@
         "title": "Documents",
         "href": "/"
       }
-    ],
-    "pages": {
-      "about": "about"
-    }
+    ]
+    
+
   }
