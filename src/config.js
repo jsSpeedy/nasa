@@ -9,3 +9,5 @@ export const pathnames = {
     tr: "/iletisim",
   },
 };
+
+export const IMAGE_PATH = "/images/";
