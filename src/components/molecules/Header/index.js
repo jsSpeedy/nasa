@@ -5,6 +5,8 @@ import Link from "next/link";
 import Icon from "src/components/atoms/Icon";
 import styled from "styled-components";
 import { useTranslations } from "next-intl";
+import LocalSwitcher from "./LocalSwitcher";
+import Row from "src/components/atoms/Row";
 
 const StyledIcon = styled(Icon)`
   position: relative;
@@ -144,25 +146,29 @@ const Header = () => {
 
   return (
     <Container>
-      <Navigation>
-        <ItemsWrapper onMouseLeave={handleMouseLeave}>
-          {headers.map((item, index) => (
-            <Items
-              key={index}
-              className={index === activeIndex ? "active" : ""}
-              onClick={() => handleClick(index)}
-              onMouseEnter={() => handleMouseEnter(index)}
-              hover={hoverIndex}
-            >
-              <Item href={item.href}>
-                <StyledIcon icon={item.icon} />
-                <Text>{item.title}</Text>
-              </Item>
-            </Items>
-          ))}
-          <Indicator activeIndex={activeIndex} hoverIndex={hoverIndex} />
-        </ItemsWrapper>
-      </Navigation>
+      <Row>
+        <Navigation>
+          <ItemsWrapper onMouseLeave={handleMouseLeave}>
+            {headers.map((item, index) => (
+              <Items
+                key={index}
+                className={index === activeIndex ? "active" : ""}
+                onClick={() => handleClick(index)}
+                onMouseEnter={() => handleMouseEnter(index)}
+                hover={hoverIndex}
+              >
+                <Item href={item.href}>
+                  <StyledIcon icon={item.icon} />
+                  <Text>{item.title}</Text>
+                </Item>
+              </Items>
+            ))}
+            <Indicator activeIndex={activeIndex} hoverIndex={hoverIndex} />
+          </ItemsWrapper>
+        </Navigation>
+
+        <LocalSwitcher />
+      </Row>
     </Container>
   );
 };
