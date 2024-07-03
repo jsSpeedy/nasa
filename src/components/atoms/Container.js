@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import { device } from "src/utils/device";
 
-const Row = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
 const ContainerWrapper = styled.div`
   width: 100%;
   max-width: 1440px; /* veya istediğiniz maksimum genişlik */
@@ -39,11 +33,7 @@ const ContainerWrapper = styled.div`
 `;
 
 const Container = ({ children }) => {
-  return (
-    <ContainerWrapper>
-      <Row>{children}</Row>
-    </ContainerWrapper>
-  );
+  return <ContainerWrapper>{children}</ContainerWrapper>;
 };
 
 export default Container;
