@@ -2,11 +2,13 @@
   "languages": [
     {
       "language": "Türkçe",
-      "icon": "tr-icon.png"
+      "icon": "tr-icon.png",
+      "locale": "tr"
     },
     {
       "language": "English",
-      "icon": "uk-icon.png"
+      "icon": "uk-icon.png",
+       "locale": "en"
     }
   ],
   

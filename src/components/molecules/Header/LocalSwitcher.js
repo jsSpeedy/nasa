@@ -1,8 +1,10 @@
 import { useTranslations } from "next-intl";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useTransition } from "react";
 import styled, { keyframes } from "styled-components";
 import { getImagePath } from "src/utils/imageUtils";
 import Image from "next/image";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 const slideIn = keyframes`
   from {
@@ -127,8 +129,16 @@ const LocalSwitcher = () => {
   const t = useTranslations();
   const languages = t.raw("languages");
 
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+  const localActive = useLocale();
+
+  const initialLanguage = languages.find(
+    (language) => language.locale === localActive
+  );
+
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const [selectedLanguage, setSelectedLanguage] = useState(initialLanguage);
   const [key, setKey] = useState(0);
 
   const dropdownRef = useRef(null);
@@ -142,6 +152,12 @@ const LocalSwitcher = () => {
     setSelectedLanguage(language);
     setIsOpen(false);
     setKey((prevKey) => prevKey + 1);
+  };
+
+  const onSelectClick = (locale) => {
+    startTransition(() => {
+      router.replace(`/${locale}`);
+    });
   };
 
   useEffect(() => {
@@ -169,7 +185,10 @@ const LocalSwitcher = () => {
               onClick={(e) => {
                 e.stopPropagation();
                 handleLanguageSelect(item);
+                onSelectClick(item.locale);
               }}
+              defaultValue={localActive}
+              disabled={isPending}
             >
               {item.language}
             </Item>
