@@ -4,7 +4,8 @@ import styled, { keyframes } from "styled-components";
 import { getImagePath } from "src/utils/imageUtils";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { getLocalizedPath } from "src/utils/routeUtils";
 
 const slideIn = keyframes`
   from {
@@ -128,6 +129,7 @@ const Item = styled.li`
 const LocalSwitcher = () => {
   const t = useTranslations();
   const languages = t.raw("languages");
+  const pathname = usePathname();
 
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
@@ -156,7 +158,8 @@ const LocalSwitcher = () => {
 
   const onSelectClick = (locale) => {
     startTransition(() => {
-      router.replace(`/${locale}`);
+      const newPath = getLocalizedPath(pathname, locale);
+      router.replace(newPath);
     });
   };
 
