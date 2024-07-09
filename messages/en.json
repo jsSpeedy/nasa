@@ -21,7 +21,7 @@
       {
         "icon": "user",
         "title": "About",
-        "href": "about"
+        "href": "/about"
       },
       {
         "icon": "images",
