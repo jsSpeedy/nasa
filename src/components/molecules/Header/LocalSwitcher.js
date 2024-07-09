@@ -1,11 +1,18 @@
 import { useTranslations } from "next-intl";
-import React, { useState, useRef, useEffect, useTransition } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useTransition,
+  useCallback,
+} from "react";
 import styled, { keyframes } from "styled-components";
 import { getImagePath } from "src/utils/imageUtils";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { getLocalizedPath } from "src/utils/routeUtils";
+import useOutsideClick from "src/hooks/useOutsideClick";
 
 const slideIn = keyframes`
   from {
@@ -163,18 +170,11 @@ const LocalSwitcher = () => {
     });
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
+  const handleClickOutside = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [dropdownRef]);
+  useOutsideClick(dropdownRef, handleClickOutside);
 
   return (
     <SwitcherNavigation ref={dropdownRef} onClick={toggleDropdown}>
