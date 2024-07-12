@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { useTranslations } from "next-intl";
 import LocalSwitcher from "./LocalSwitcher";
 import Row from "src/components/atoms/Row";
+import { useNavigation } from "src/hooks/NavigationContext";
 
 const StyledIcon = styled(Icon)`
   position: relative;
@@ -96,7 +97,6 @@ const Items = styled.li`
 
   &.active ${Text} {
     opacity: ${({ hover }) => (hover == null ? "1" : "0")};
-
     transform: ${({ hover }) =>
       hover == null ? "translateY(10px)" : "translateY(0)"};
   }
@@ -128,7 +128,7 @@ const Header = () => {
   const t = useTranslations();
   const headers = t.raw("headers");
 
-  const [activeIndex, setActiveIndex] = useState(2);
+  const { activeIndex, setActiveIndex } = useNavigation();
   const [hoverIndex, setHoverIndex] = useState(null);
 
   const handleClick = (index) => {
