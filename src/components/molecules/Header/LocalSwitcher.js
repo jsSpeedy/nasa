@@ -166,7 +166,7 @@ const LocalSwitcher = () => {
   const onSelectClick = (locale) => {
     startTransition(() => {
       const newPath = getLocalizedPath(pathname, locale);
-      router.replace(newPath);
+      router.replace(newPath, undefined, { locale });
     });
   };
 
