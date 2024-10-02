@@ -1,10 +1,16 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const NavigationContext = createContext();
 
 export const NavigationProvider = ({ children }) => {
-  const [activeIndex, setActiveIndex] = useState(2);
+  const [activeIndex, setActiveIndex] = useState(() => {
+    return Number(localStorage.getItem("activeIndex")) || 2;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("activeIndex", activeIndex);
+  }, [activeIndex]);
 
   return (
     <NavigationContext.Provider value={{ activeIndex, setActiveIndex }}>
